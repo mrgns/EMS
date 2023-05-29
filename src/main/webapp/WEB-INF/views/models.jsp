@@ -99,17 +99,20 @@
 				</div>
 				<form name="frm" method="Post" action="addCountry">
 					<div class="modal-body">
-						 <td><label>Country ID</label> <input type="text"
-							name="countryId" class="form-control" placeholder="Ex. IN for India">
+						 <td>
+							 <label>Country ID</label> 
+							 <input type="text" name="countryId" id="countryId" class="form-control" placeholder="Ex. IN for India">
 						</td> 
 						<br>
-						<td><label>Country Name</label> <input type="text"
-							name="name" class="form-control"></td>
+						<td>
+							<label>Country Name</label> 
+							<input type="text" name="name" id="countryName" class="form-control"></td>
 						<br>
-						<td><label>Region Id</label> 
-						<select id="regionId" name="regionId" class="form-control">
-						
-						</select>
+						<td>
+							<label>Region Id</label> 
+							<select id="regionId" name="regionId" class="form-control">
+							
+							</select>
 						</td>
 						<br>
 					</div>
@@ -137,19 +140,24 @@
 				</div>
 				<form name="frm" method="Post" action="addLocation">
 					<div class="modal-body">
-
-						<!-- <td><label>Location Id</label> <input type="text"
-							name="locationId" class="form-control" placeholder="1000 - 99999"></td> -->
-						<td><label>Street Adress</label> <input type="text"
-							name="streetAddress" class="form-control"></td>
-						<td><label> Postal code</label> <input type="text"
-							name="postalCode" class="form-control"></td>
-						<td><label>City</label> <input type="text" name="city"
-							class="form-control"></td>
-						<td><label>State Provinance</label> <input type="text"
-							name="stateProvince" class="form-control">
 						<td>
-						<td><label>Country Id</label> 
+						<!--<label>Location Id</label>  -->
+						<input type="hidden" name="locationId" id="locationId" class="form-control" placeholder="1000 - 99999"></td>
+						<td>
+							<label>Street Adress</label> 
+							<input type="text" name="streetAddress" id="streetAddress" class="form-control"></td>
+						<td>
+							<label> Postal code</label> 
+							<input type="text" name="postalCode" id="postalCode" class="form-control"></td>
+						<td>
+							<label>City</label> 
+							<input type="text" name="city" id="city1" class="form-control"></td>
+						<td>
+							<label>State Provinance</label>
+						    <input type="text" name="stateProvince" id="stateProvince1" class="form-control">
+						<td>
+						<td>
+							<label>Country Id</label> 
 							<select id="countryId" name="countryId" class="form-control">
 								<option>Select Country</option>
 							</select>
@@ -182,16 +190,20 @@
 				<form name="frm" method="Post" action="addJob">
 					<div class="modal-body">
 
-						<!-- <td><label>Job Id</label> <input type="text" name="name"
-							class="form-control"></td> -->
-						<td><label>Job Title</label> 
-						<input type="text" name="name"
-							class="form-control"></td>
-						<td><label> Min salary</label> 
-						<input type="text" name="minSalary"
-							class="form-control" placeholder="8400.00"></td>
-						<td><label>Max Salary</label> <input type="text" name="maxSalary"
-							class="form-control" placeholder="18400.00"></td>
+						<!-- <td><label>Job Id</label> </td> -->
+						<input type="hidden" name="jobId" id="jobId" class="form-control">
+						<td>
+							<label>Job Title</label> 
+							<input type="text" name="name" id="jobTitle" class="form-control">
+						</td>
+						<td>
+							<label> Min salary</label> 
+							<input type="text" name="minSalary" id="minSalary" class="form-control" placeholder="8400.00">
+						</td>
+						<td>
+							<label>Max Salary</label>
+							<input type="text" name="maxSalary" id="maxSalary" class="form-control" placeholder="18400.00">
+						</td>
 
 
 					</div>
@@ -220,18 +232,19 @@
 				<form name="frm" method="Post" action="addDepartment">
 					<div class="modal-body">
 
-						 <td><label>Department Id</label> <input type="hidden"
-							name="deptId" class="form-control"></td> 
-						<td>
+						 <td>
+							 <label>Department Id</label> 
+							 <input type="hidden" name="deptId" id="deptId" class="form-control"></td> 
+						  <td>
 							<label>Department Name</label>
-						 	<input type="text" name="departmentName" class="form-control">
+						 	<input type="text" name="departmentName" id="departmentName" class="form-control">
 						 </td>
-						<td>
-							<label>Location Id</label>
-							 <select id="LocationId" name="locationId" class="form-control">
-								<option value=""> select Location</option>
-							</select>
-						</td>
+							<td>
+								<label>Location Id</label>
+								 <select id="LocationId" name="locationId" class="form-control">
+									<option value=""> select Location</option>
+								</select>
+							</td>
 
 
 					</div>
