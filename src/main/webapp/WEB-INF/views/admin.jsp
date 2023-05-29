@@ -528,7 +528,7 @@ border: 1px solid #ac4c4c;
 		    	        $('<td>').text(item.countryId),
 		    	        $('<td>').text(item.name),
 		    	        $('<td>').text(item.regionId),
-		    	        $('<td>').html('<a onclick="editCountry('+item.countryId+')" class="btn btn-success" style="color:black; width:50px;">Edit</a>'+
+		    	        $('<td>').html('<a onclick="editCountry(\''+item.countryId+'\')" class="btn btn-success" style="color:black; width:50px;">Edit</a>'+
 		    	        		'&nbsp;<a href="deleteCountry?countryId='+item.countryId+'" class="btn btn-danger" style="color:black;" >Delete</a>')
 		    	        	);
 		    	      tableBody.append(newRow);
@@ -730,8 +730,89 @@ border: 1px solid #ac4c4c;
 	 		});
 	 	 }
 	 	 
+	 	function editLocation(id){
+	 		$.ajax({
+	 		    url: 'getLocationById',
+	 		    method: 'GET',
+	 		    data: {
+	 		        locationId: id 
+	 		    },
+	 		    success: function(data) {
+	 		    	console.log(data);
+	 		    	$('#locationId').val(data.locationId);
+	 		    	$('#streetAddress').val(data.streetAddress);
+	 		    	$('#postalCode').val(data.postalCode);
+	 		    	$('#city1').val(data.city);
+	 		    	$('#stateProvince1').val(data.stateProvince);
+	 		    	$('#countryId').html();
+			 		$('#LocationModel').modal('show');
+	 		    },
+	 		    error: function(xhr, status, error) {
+	 		        console.log(error);
+	 		    }
+	 		});
+	 	}
 	 	
+	 	function editCountry(id){
+	 		$.ajax({
+	 		    url: 'getCountryById',
+	 		    method: 'GET',
+	 		    data: {
+	 		        countryId: id 
+	 		    },
+	 		    success: function(data) {
+	 		    	console.log(data);
+	 		    	$('#countryId').val(data.countryId);
+	 		    	$('#countryName').val(data.name);
+	 		    	$('#regionId').html('<option value="' + data.regionId + '">' + data.regionId + '</option>');
+			 		$('#CountryModel').modal('show'); 
+	 		    },
+	 		    error: function(xhr, status, error) {
+	 		        console.log(error);
+	 		    }
+	 		});
+	 	}
+	 	
+	 	function editJob(id){
+	 		$.ajax({
+	 		    url: 'getJobById',
+	 		    method: 'GET',
+	 		    data: {
+	 		        jobId: id 
+	 		    },
+	 		    success: function(data) {
+	 		    	console.log(data);
+	 		    	$('#jobId').val(data.jobId);
+	 		    	$('#jobTitle').val(data.jobTitle);
+	 		    	$('#minSalary').val(data.minSalary);
+	 		    	$('#maxSalary').val(data.maxSalary);
+			 		$('#JobModel').modal('show'); 
+	 		    },
+	 		    error: function(xhr, status, error) {
+	 		        console.log(error);
+	 		    }
+	 		});
+	 	}
+	 	
+	 	function editDept(id){
+	 		$.ajax({
+	 		    url: 'getDepartmentById',
+	 		    method: 'GET',
+	 		    data: {
+	 		        deptId: id 
+	 		    },
+	 		    success: function(data) {
+	 		    	console.log(data);
+	 		    	$('#deptId').val(data.deptId);
+	 		    	$('#departmentName').val(data.departmentName);
+	 		    	$('#LocationId').html();
+			 		$('#DepartmentModel').modal('show'); 
+	 		    },
+	 		    error: function(xhr, status, error) {
+	 		        console.log(error);
+	 		    }
+	 		});
+	 	}
 	</script>
-	
 </body>
 </html>
