@@ -208,22 +208,79 @@ public class TransationDAO {
 	}
 
 	public Country getCountryById(String countryId) {
-		// TODO Auto-generated method stub
-		return null;
+		Country country = new Country();
+		try {
+			connection = connect.getConnection();
+			psmt = connection.prepareStatement("Select * from countries where country_id = ?");
+			psmt.setString(1, countryId);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				country.setCountryId(countryId);
+				country.setName(rs.getString("country_name"));
+				country.setRegionId(rs.getInt("region_id"));
+			}	
+		}catch(Exception e) {
+			logger.info("Error : "+e);
+		}
+		return country;
 	}
 
 	public Location getLocationById(Integer locationId) {
-		// TODO Auto-generated method stub
-		return null;
+		Location loc = new Location();
+		try {
+			connection = connect.getConnection();
+			psmt = connection.prepareStatement("Select * from locations where location_id = ?");
+			psmt.setInt(1, locationId);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				loc.setLocationId(locationId);
+				loc.setStreetAddress(rs.getString("street_address"));
+				loc.setCity(rs.getString("city"));
+				loc.setStateProvince(rs.getString("state_province"));
+				loc.setCountryId(rs.getString("country_id"));
+				loc.setPostalCode(rs.getString("postal_code"));
+			}
+				
+		}catch(Exception e) {
+			logger.info("Error : "+e);
+		}
+		return loc;
 	}
 
 	public Department getDepartmentById(Integer deptId) {
-		// TODO Auto-generated method stub
-		return null;
+		Department dept = new Department();
+		try {
+			connection = connect.getConnection();
+			psmt = connection.prepareStatement("Select * from departments where department_id = ?");
+			psmt.setInt(1, deptId);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				dept.setDeptId(deptId);
+				dept.setDepartmentName(rs.getString("department_name"));
+				dept.setLocationId(rs.getInt("location_id"));
+			}
+		}catch(Exception e) {
+			logger.info("Error : "+e);
+		}
+		return dept;
 	}
 
 	public Job getJobById(Integer jobId) {
-		// TODO Auto-generated method stub
-		return null;
+		Job job = new Job();
+		try {
+			connection = connect.getConnection();
+			psmt = connection.prepareStatement("Select * from jobs where job_id = ?");
+			psmt.setInt(1, jobId);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				job.setJobId(jobId);
+				job.setJobTitle(rs.getString("job_title"));
+				job.setMaxSalary(rs.getDouble("max_salary"));
+				job.setMinSalary(rs.getDouble("min_salary"));
+			}
+		}catch(Exception e) {
+			logger.info("Error : "+e);
+		}
+		return job;
 	}
 }
